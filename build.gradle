@@ -99,17 +99,6 @@ pmd {
   ruleSetFiles = files("config/pmd/ruleset.xml")
 }
 
-jacocoTestReport {
-  executionData(test, integration)
-  reports {
-    xml.enabled = true
-    csv.enabled = false
-    xml.destination file("${buildDir}/reports/jacoco/test/jacocoTestReport.xml")
-  }
-}
-
-project.tasks['sonarqube'].dependsOn jacocoTestReport
-
 sonarqube {
   properties {
     property "sonar.projectName", "Reform :: spring-boot-template"
@@ -228,11 +217,11 @@ dependencies {
 
 }
 
-mainClassName = 'uk.gov.hmcts.reform.wa.standalone.task.bpmn'
+mainClassName = 'uk.gov.hmcts.reform.wa.standalone.task.bpmn.Application'
 
 bootJar {
   getArchiveFileName().set(provider {
-    'wa.standalone.task.bpmn.jar'
+    'wa-standalone-task-bpmn.jar'
   })
 
   manifest {
