@@ -1,4 +1,4 @@
-package uk.gov.hmcts.reform.wa.standalone.task.bpmn;
+package uk.gov.hmcts.reform.wastandalonetaskbpmn;
 
 import org.camunda.bpm.engine.runtime.ProcessInstance;
 import org.camunda.bpm.engine.test.Deployment;
@@ -23,7 +23,7 @@ import static org.camunda.bpm.engine.test.assertions.ProcessEngineTests.complete
 import static org.camunda.bpm.engine.test.assertions.ProcessEngineTests.task;
 import static org.camunda.bpm.engine.test.assertions.bpmn.BpmnAwareTests.job;
 import static org.junit.Assert.assertTrue;
-import static uk.gov.hmcts.reform.wa.standalone.task.bpmn.ProcessEngineBuilder.getProcessEngine;
+import static uk.gov.hmcts.reform.wastandalonetaskbpmn.ProcessEngineBuilder.getProcessEngine;
 
 
 @SuppressWarnings("PMD.UseConcurrentHashMap")

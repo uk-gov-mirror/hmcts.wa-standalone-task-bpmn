@@ -8,6 +8,8 @@ plugins {
   id 'com.github.ben-manes.versions' version '0.36.0'
   id 'org.owasp.dependencycheck' version '6.0.3'
   id 'org.sonarqube' version '3.0'
+  id 'info.solidsoft.pitest' version '1.5.2'
+
 }
 
 group = 'uk.gov.hmcts.reform'
@@ -99,6 +101,14 @@ pmd {
   ruleSetFiles = files("config/pmd/ruleset.xml")
 }
 
+jacocoTestCoverageVerification {
+  violationRules {
+    rule {
+      excludes = ["com.gargoylesoftware.htmlunit.javascript.host.css.StyleAttributes"]
+    }
+  }
+}
+
 jacocoTestReport {
   executionData(test, integration)
   reports {
@@ -108,13 +118,33 @@ jacocoTestReport {
   }
 }
 
+pitest {
+  junit5PluginVersion = '0.12'
+  targetClasses = ['uk.gov.hmcts.reform.wastandalonetaskbpmn.*']
+  excludedClasses = [
+    'uk.gov.hmcts.reform.wastandalonetaskbpmn.config.*',
+    'uk.gov.hmcts.reform.wastandalonetaskbpmn.Application'
+  ]
+  threads = 10
+  outputFormats = ['XML', 'HTML']
+  timestampedReports = false
+  mutationThreshold = 80
+}
+
+project.tasks['pitest'].group = "Verification"
+
+
 project.tasks['sonarqube'].dependsOn test, integration, jacocoTestReport
 
 sonarqube {
   properties {
     property "sonar.projectName", "Reform :: wa-standalone-task-bpmn"
-    property "sonar.projectKey", "uk.gov.hmcts.reform:wa_standalone_task_bpmn"
+    property "sonar.projectKey", "uk.gov.hmcts.reform:wa-standalone-task-bpmn"
     property "sonar.coverage.jacoco.xmlReportPaths", "${jacocoTestReport.reports.xml.destination.path}"
+    property "sonar.pitest.mode", "reuseReport"
+    property "sonar.pitest.reportsDirectory", "build/reports/pitest"
+    property "sonar.exclusions", "src/main/java/uk/gov/hmcts/reform/wastandalonetaskbpmn/config/**," +
+                                 "src/main/java/uk/gov/hmcts/reform/wastandalonetaskbpmn/Application.java"
   }
 }
 
@@ -165,7 +195,9 @@ def versions = [
   reformLogging   : '5.1.5',
   springBoot      : springBoot.class.package.implementationVersion,
   springfoxSwagger: '2.9.2',
-  camunda         : '7.14.0'
+  camunda         : '7.14.0',
+  pitest          : '1.5.2',
+  sonarPitest     : '0.5'
 
 ]
 
@@ -199,6 +231,12 @@ dependencies {
   compile group: 'org.apache.tomcat.embed', name: 'tomcat-embed-websocket', version: '9.0.39'
   compile group: 'org.camunda.bpm', name: 'camunda-external-task-client', version: '1.4.0'
 
+  testCompile group: 'org.pitest', name: 'pitest', version: versions.pitest
+  testCompile 'info.solidsoft.gradle.pitest:gradle-pitest-plugin:1.5.2'
+  testCompile 'org.codehaus.sonar-plugins:sonar-pitest-plugin:0.5'
+
+  testCompile "org.junit.vintage:junit-vintage-engine:${versions.junit}"
+  testCompile group: 'org.codehaus.sonar-plugins', name: 'sonar-pitest-plugin', version: versions.sonarPitest
   testImplementation libraries.junit5
   testImplementation group: 'org.springframework.boot', name: 'spring-boot-starter-test', {
     exclude group: 'junit', module: 'junit'
@@ -228,7 +266,7 @@ dependencies {
 
 }
 
-mainClassName = 'uk.gov.hmcts.reform.wa.standalone.task.bpmn.Application'
+mainClassName = 'uk.gov.hmcts.reform.wastandalonetaskbpmn.Application'
 
 bootJar {
   getArchiveFileName().set(provider {
