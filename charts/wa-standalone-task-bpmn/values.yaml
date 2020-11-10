@@ -1,0 +1,5 @@
+java:
+  applicationPort: 4550
+  image: 'hmctspublic.azurecr.io/rpe/spring-boot-template:latest'
+  ingressHost: wa-standalone-task-bpmn-{{ .Values.global.environment }}.service.core-compute-{{ .Values.global.environment }}.internal
+  environment:
