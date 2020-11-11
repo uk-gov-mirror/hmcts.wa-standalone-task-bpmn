@@ -1,4 +1,4 @@
-package uk.gov.hmcts.reform.wa.standalone.task.bpmn;
+package uk.gov.hmcts.reform.wastandalonetaskbpmn;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

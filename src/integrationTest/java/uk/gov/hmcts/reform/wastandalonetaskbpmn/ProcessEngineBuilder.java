@@ -1,4 +1,4 @@
-package uk.gov.hmcts.reform.wa.standalone.task.bpmn;
+package uk.gov.hmcts.reform.wastandalonetaskbpmn;
 
 import org.camunda.bpm.engine.ProcessEngine;
 import org.camunda.bpm.engine.impl.cfg.StandaloneInMemProcessEngineConfiguration;
