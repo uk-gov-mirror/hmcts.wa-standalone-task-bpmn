@@ -1,7 +1,10 @@
 server:
-  port: 4550
+  port: 4055
 
 management:
+  health:
+    probes:
+      enabled: true
   endpoint:
     health:
       show-details: "always"
@@ -11,7 +14,26 @@ management:
       exposure:
         include: health, info, prometheus
 
+enableSwagger: ${ENABLE_SWAGGER:true}
+
+config:
+  stacktraceEnabled:  ${STACKTRACE_ENABLED:false}
+
+#logging:
+#  level:
+#    org.springframework: debug
+
 #If you use a database then uncomment below lines and update db properties accordingly
 spring:
   application:
-    name: Wa standalone task bpmn
+    name: wa standalone task bpmn
+  main:
+    allow-bean-definition-overriding: true
+
+security:
+  anonymousPaths:
+    - "/"
+    - "/health"
+    - "/health/liveness"
+    - "/health/readiness"
+    - "/v2/api-docs"
