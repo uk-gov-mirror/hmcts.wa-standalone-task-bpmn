@@ -1,4 +1,6 @@
 java:
-  applicationPort: 4005
-  image: 'hmctspublic.azurecr.io/wa/standalone-task-bpmni:latest'
+  applicationPort: 4550
+  image: 'hmctspublic.azurecr.io/wa/standalone-task-bpmn:latest'
   ingressHost: wa-standalone-task-bpmn-{{ .Values.global.environment }}.service.core-compute-{{ .Values.global.environment }}.internal
+  environment:
+    TEST_ENV: false
