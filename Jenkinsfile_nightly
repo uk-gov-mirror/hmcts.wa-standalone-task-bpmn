@@ -4,7 +4,7 @@
 
 def type = "java"
 def product = "wa"
-def component = "wa-standalone-task-bpmn"
+def component = "standalone-task-bpmn"
 
 withPipeline(type, product, component) {
 }
