@@ -126,7 +126,8 @@ public class CamundaCreateTaskTest {
             .startProcessInstanceByMessage("createTaskMessage", processVariables);
     }
 
-    private ProcessInstance startCreateTaskProcessWithBusinessKey(Map<String, Object> processVariables, String businessKey) {
+    private ProcessInstance startCreateTaskProcessWithBusinessKey(Map<String, Object> processVariables,
+                                                                  String businessKey) {
         return processEngineRule.getRuntimeService()
             .startProcessInstanceByMessage("createTaskMessage",businessKey, processVariables);
     }
