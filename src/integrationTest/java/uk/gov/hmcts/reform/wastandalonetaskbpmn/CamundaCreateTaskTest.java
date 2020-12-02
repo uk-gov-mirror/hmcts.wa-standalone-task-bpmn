@@ -29,13 +29,12 @@ import static uk.gov.hmcts.reform.wastandalonetaskbpmn.ProcessEngineBuilder.getP
 @SuppressWarnings("PMD.UseConcurrentHashMap")
 public class CamundaCreateTaskTest {
 
-    public static final String PROCESS_TASK = "processTask";
+    private static final String PROCESS_TASK = "processTask";
+    private static final String TASK_NAME = "task name";
     private static final String EXPECTED_GROUP = "TCW";
     private static final ZonedDateTime DUE_DATE = now().plusDays(7);
+    private static final Date DUE_DATE_DATE = from(DUE_DATE.toInstant());
     private static final String DUE_DATE_STRING = DUE_DATE.format(ISO_INSTANT);
-    public static final Date DUE_DATE_DATE = from(DUE_DATE.toInstant());
-    public static final String TASK_NAME = "task name";
-
     @Rule
     public ProcessEngineRule processEngineRule = new ProcessEngineRule(getProcessEngine());
 
@@ -97,7 +96,7 @@ public class CamundaCreateTaskTest {
     }
 
     @Test
-    @Deployment(resources = {"create_task.bpmn"})
+    @Deployment(resources = {"wa-task-initiation-ia-asylum.bpmn"})
     public void createsAndCancelACamundaTask() {
         String testBusinessKey = "TestBusinessKey";
 
@@ -113,10 +112,10 @@ public class CamundaCreateTaskTest {
             .hasCandidateGroup(EXPECTED_GROUP)
             .hasName(TASK_NAME)
             .isNotAssigned();
-        assertThat(createTaskAndCancel).isWaitingAt("processTask");
+        assertThat(createTaskAndCancel).isWaitingAt(PROCESS_TASK);
 
 
-        processEngineRule.getRuntimeService().correlateMessage("cancelTasks",testBusinessKey);
+        processEngineRule.getRuntimeService().correlateMessage("cancelTasks", testBusinessKey);
         assertThat(createTaskAndCancel).isEnded();
 
     }
@@ -129,7 +128,7 @@ public class CamundaCreateTaskTest {
     private ProcessInstance startCreateTaskProcessWithBusinessKey(Map<String, Object> processVariables,
                                                                   String businessKey) {
         return processEngineRule.getRuntimeService()
-            .startProcessInstanceByMessage("createTaskMessage",businessKey, processVariables);
+            .startProcessInstanceByMessage("createTaskMessage", businessKey, processVariables);
     }
 
 }
