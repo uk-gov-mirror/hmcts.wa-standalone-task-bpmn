@@ -40,7 +40,7 @@ public class CamundaCreateTaskTest {
     public ProcessEngineRule processEngineRule = new ProcessEngineRule(getProcessEngine());
 
     @Test
-    @Deployment(resources = {"create_task.bpmn"})
+    @Deployment(resources = {"wa-task-initiation-ia-asylum.bpmn"})
     public void createsAndCompletesATaskWithADueDate() {
         ProcessInstance processInstance = startCreateTaskProcess(of(
             "taskId", "provideRespondentEvidence",
@@ -64,7 +64,7 @@ public class CamundaCreateTaskTest {
     }
 
     @Test
-    @Deployment(resources = {"create_task.bpmn"})
+    @Deployment(resources = {"wa-task-initiation-ia-asylum.bpmn"})
     public void createsAndCompletesATaskWithoutADueDate() {
         Map<String, Object> processVariables = new HashMap<>();
         processVariables.put("taskId", "provideRespondentEvidence");
