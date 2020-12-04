@@ -6,10 +6,12 @@
 
 The purpose of this repo is to hold all WA task related bpmns and the tests for those bpmns.
 
+These BPMNS can be viewed through the [Camunda Modeler](https://camunda.com/download/modeler/) which can be downloaded via the link.
+
 ## What's inside
 
 This repo contains:
- * Camunda BPMN's
+ * Common Work Allocation BPMNs for the Standalone Task Workflow - [Path to BPMNs](https://github.com/hmcts/wa-standalone-task-bpmn/tree/master/src/main/resources)
  * Tests related to those BPMN's
 
 ## Setup
