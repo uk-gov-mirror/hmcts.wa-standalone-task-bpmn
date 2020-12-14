@@ -6,7 +6,7 @@
 ##
 ## deployes bpmn/dmn to camunda.
 
-AUTHORIZATION= sh .${WA_KUBE_ENV_PATH}/scripts/actions/idam-service-token.sh
+AUTHORIZATION= sh ${WA_KUBE_ENV_PATH}/scripts/actions/idam-service-token.sh
 
 
 for file in ${WA_BPMNS}/*.bpmn ${WA_BPMNS}/*.dmn
