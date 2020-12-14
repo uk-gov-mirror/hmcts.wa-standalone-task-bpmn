@@ -2,14 +2,14 @@
 ## Usage: ./camunda-deployment
 ##
 ## Options:
-##    - authorization: Service Auth token.
+##    - AUTHORIZATION: which is generated with the idam-service-token.
 ##
-## deployes bpmn/dmn to camunda.
+## deploys bpmn/dmn to camunda.
 
 AUTHORIZATION= sh ${WA_KUBE_ENV_PATH}/scripts/actions/idam-service-token.sh
 
 
-for file in ${WA_BPMNS}/*.bpmn ${WA_BPMNS}/*.dmn
+for file in ${WA_BPMNS_DMNS_PATH}/*.bpmn ${WA_BPMNS_DMNS_PATH}/*.dmn
 do
 	if [ -f "$file" ]
 	then
@@ -20,7 +20,7 @@ curl --header "Content-Type: multipart/form-data" "ServiceAuthorization: ${AUTHO
   fi
 done
 
-for file in ${IA_TASK_DMNS}/*.bpmn ${IA_TASK_DMNS}/*.dmn
+for file in ${IA_TASK_DMNS_BPMNS_PATH}/*.bpmn ${IA_TASK_DMNS_BPMNS_PATH}/*.dmn
 do
 	if [ -f "$file" ]
 	then
