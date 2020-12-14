@@ -8,6 +8,7 @@
 
 authorization=""
 
+
 for file in ${WA_BPMNS}/*.bpmn ${WA_BPMNS}/*.dmn
 do
 	if [ -f "$file" ]
