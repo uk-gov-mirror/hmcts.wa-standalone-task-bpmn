@@ -24,14 +24,6 @@ Since Spring Boot 2.1 bean overriding is disabled. If you want to enable it you 
 
 JUnit 5 is now enabled by default in the project. Please refrain from using JUnit4 and use the next generation
 
-## Automating BPMN/DMN diagrams
-
-Add the following variables to your bash profile:
- * `WA_BPMNS_DMNS_PATH` - to the path where your WA BPMNS are stored. [Link to path here](https://github.com/hmcts/wa-standalone-task-bpmn/tree/master/src/main/resources)
- * `IA_TASK_DMNS_BPMNS_PATH` - to the path where DMNS in `IA_TASK_CONFIGURATION` are stored. [Link to path here](https://github.com/hmcts/ia-task-configuration/tree/master/src/main/resources)
-
-    You will then be able to run the `camunda_deployment.sh` file inside the scripts' folder to deploy BPMNS/DMNS onto camunda.
-
 ### Building the application
 
 The project uses [Gradle](https://gradle.org) as a build tool. It already contains
