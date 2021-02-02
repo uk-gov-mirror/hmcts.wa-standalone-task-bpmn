@@ -184,7 +184,7 @@ public class CamundaCreateTaskTest {
         BpmnAwareTests.assertThat(processInstance).isWaitingAt("idempotencyCheck");
     }
 
-        private ProcessInstance startCreateTaskProcess(Map<String, Object> processVariables) {
+    private ProcessInstance startCreateTaskProcess(Map<String, Object> processVariables) {
         return processEngineRule.getRuntimeService()
             .startProcessInstanceByMessage("createTaskMessage", processVariables);
     }
