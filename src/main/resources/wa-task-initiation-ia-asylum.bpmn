@@ -43,7 +43,7 @@
     </bpmn:intermediateCatchEvent>
     <bpmn:sequenceFlow id="Flow_1azvh3y" sourceRef="createTaskMessage" targetRef="processStartTimer" />
     <bpmn:subProcess id="Activity_0aq15v4" triggeredByEvent="true">
-      <bpmn:endEvent id="Event_1bcr3ue">
+      <bpmn:endEvent id="Event_1bcr3ue" name="Warn Process Completed">
         <bpmn:incoming>Flow_1th85jg</bpmn:incoming>
       </bpmn:endEvent>
       <bpmn:sequenceFlow id="Flow_0icj10p" sourceRef="Event_0piep6v" targetRef="Activity_1etkl8e" />
@@ -146,7 +146,7 @@
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_0aq15v4_di" bpmnElement="Activity_0aq15v4" isExpanded="true">
-        <dc:Bounds x="230" y="440" width="365" height="210" />
+        <dc:Bounds x="230" y="440" width="410" height="210" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Flow_0icj10p_di" bpmnElement="Flow_0icj10p">
         <di:waypoint x="318" y="530" />
@@ -158,6 +158,9 @@
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="Event_1bcr3ue_di" bpmnElement="Event_1bcr3ue">
         <dc:Bounds x="542" y="512" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="526" y="555" width="69" height="27" />
+        </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_0aty9pt_di" bpmnElement="Activity_1etkl8e">
         <dc:Bounds x="390" y="490" width="100" height="80" />
