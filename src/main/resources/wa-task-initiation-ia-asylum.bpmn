@@ -42,7 +42,7 @@
       </bpmn:timerEventDefinition>
     </bpmn:intermediateCatchEvent>
     <bpmn:sequenceFlow id="Flow_1azvh3y" sourceRef="createTaskMessage" targetRef="processStartTimer" />
-    <bpmn:subProcess id="Activity_0aq15v4" name="Warning" triggeredByEvent="true">
+    <bpmn:subProcess id="Activity_0aq15v4" triggeredByEvent="true">
       <bpmn:endEvent id="Event_1bcr3ue">
         <bpmn:incoming>Flow_1th85jg</bpmn:incoming>
       </bpmn:endEvent>
