@@ -42,6 +42,21 @@
       </bpmn:timerEventDefinition>
     </bpmn:intermediateCatchEvent>
     <bpmn:sequenceFlow id="Flow_1azvh3y" sourceRef="createTaskMessage" targetRef="processStartTimer" />
+    <bpmn:subProcess id="Activity_0aq15v4" name="Warning" triggeredByEvent="true">
+      <bpmn:endEvent id="Event_1bcr3ue">
+        <bpmn:incoming>Flow_1th85jg</bpmn:incoming>
+      </bpmn:endEvent>
+      <bpmn:sequenceFlow id="Flow_0icj10p" sourceRef="Event_0piep6v" targetRef="Activity_1etkl8e" />
+      <bpmn:startEvent id="Event_0piep6v" name="Cancel Process" isInterrupting="false">
+        <bpmn:outgoing>Flow_0icj10p</bpmn:outgoing>
+        <bpmn:messageEventDefinition id="MessageEventDefinition_0e8toh3" messageRef="Message_0dksf5o" />
+      </bpmn:startEvent>
+      <bpmn:sequenceFlow id="Flow_1th85jg" sourceRef="Activity_1etkl8e" targetRef="Event_1bcr3ue" />
+      <bpmn:serviceTask id="Activity_1etkl8e" name="Warning Topic" camunda:type="external" camunda:topic="warning-topic">
+        <bpmn:incoming>Flow_0icj10p</bpmn:incoming>
+        <bpmn:outgoing>Flow_1th85jg</bpmn:outgoing>
+      </bpmn:serviceTask>
+    </bpmn:subProcess>
   </bpmn:process>
   <bpmn:message id="Message_1wn1xe7" name="Message_1tqgb06" />
   <bpmn:message id="Message_059jkd9" name="Message_2e8dj6o" />
@@ -70,6 +85,10 @@
   <bpmn:message id="Message_0dksf5o" name="warnProcess" />
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="wa-task-initiation-ia-asylum">
+      <bpmndi:BPMNEdge id="Flow_1azvh3y_di" bpmnElement="Flow_1azvh3y">
+        <di:waypoint x="218" y="240" />
+        <di:waypoint x="662" y="240" />
+      </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_0mvvsq2_di" bpmnElement="Flow_0mvvsq2">
         <di:waypoint x="698" y="240" />
         <di:waypoint x="790" y="240" />
@@ -82,10 +101,6 @@
       <bpmndi:BPMNEdge id="Flow_1t5gjw4_di" bpmnElement="Flow_1t5gjw4">
         <di:waypoint x="890" y="240" />
         <di:waypoint x="1132" y="240" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_1azvh3y_di" bpmnElement="Flow_1azvh3y">
-        <di:waypoint x="218" y="240" />
-        <di:waypoint x="662" y="240" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="Event_0mqu4ld_di" bpmnElement="userTaskCompleted">
         <dc:Bounds x="1132" y="222" width="36" height="36" />
@@ -128,6 +143,29 @@
         <dc:Bounds x="662" y="222" width="36" height="36" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="648" y="265" width="65" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0aq15v4_di" bpmnElement="Activity_0aq15v4" isExpanded="true">
+        <dc:Bounds x="230" y="440" width="365" height="210" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_0icj10p_di" bpmnElement="Flow_0icj10p">
+        <di:waypoint x="318" y="530" />
+        <di:waypoint x="390" y="530" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1th85jg_di" bpmnElement="Flow_1th85jg">
+        <di:waypoint x="490" y="530" />
+        <di:waypoint x="542" y="530" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Event_1bcr3ue_di" bpmnElement="Event_1bcr3ue">
+        <dc:Bounds x="542" y="512" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0aty9pt_di" bpmnElement="Activity_1etkl8e">
+        <dc:Bounds x="390" y="490" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_18dmg2v_di" bpmnElement="Event_0piep6v">
+        <dc:Bounds x="282" y="512" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="261" y="555" width="78" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Event_1x0xdl7_di" bpmnElement="Event_0pjf0p1">
