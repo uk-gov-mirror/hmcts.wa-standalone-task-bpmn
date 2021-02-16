@@ -52,7 +52,7 @@
         <bpmn:messageEventDefinition id="MessageEventDefinition_0e8toh3" messageRef="Message_0dksf5o" />
       </bpmn:startEvent>
       <bpmn:sequenceFlow id="Flow_1th85jg" sourceRef="Activity_1etkl8e" targetRef="Event_1bcr3ue" />
-      <bpmn:serviceTask id="Activity_1etkl8e" name="Warning Topic" camunda:type="external" camunda:topic="warning-topic">
+      <bpmn:serviceTask id="Activity_1etkl8e" name="Warning Topic" camunda:type="external" camunda:topic="wa-warning-topic">
         <bpmn:incoming>Flow_0icj10p</bpmn:incoming>
         <bpmn:outgoing>Flow_1th85jg</bpmn:outgoing>
       </bpmn:serviceTask>
