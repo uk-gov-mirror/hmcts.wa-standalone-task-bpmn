@@ -261,8 +261,6 @@ dependencies {
   integrationTestImplementation sourceSets.main.runtimeClasspath
   integrationTestImplementation sourceSets.test.runtimeClasspath
 
-
-
 }
 
 mainClassName = 'uk.gov.hmcts.reform.wastandalonetaskbpmn.Application'
