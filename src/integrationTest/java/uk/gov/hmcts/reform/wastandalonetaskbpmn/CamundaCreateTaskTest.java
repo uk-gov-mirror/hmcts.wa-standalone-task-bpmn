@@ -28,8 +28,6 @@ import static org.camunda.bpm.engine.test.assertions.bpmn.BpmnAwareTests.runtime
 import static org.junit.Assert.assertEquals;
 import static uk.gov.hmcts.reform.wastandalonetaskbpmn.ProcessEngineBuilder.getProcessEngine;
 
-
-@SuppressWarnings("PMD.UseConcurrentHashMap")
 public class CamundaCreateTaskTest {
 
     private static final String PROCESS_TASK = "processTask";
