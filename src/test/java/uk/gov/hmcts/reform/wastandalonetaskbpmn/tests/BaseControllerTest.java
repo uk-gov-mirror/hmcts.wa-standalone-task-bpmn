@@ -30,6 +30,6 @@ class BaseControllerTest {
             .andReturn().getResponse();
 
         assertThat(response.getStatus()).isEqualTo(HttpStatus.OK.value());
-        assertThat(response.getContentAsString()).isEqualTo("Welcome to test service");
+        assertThat(response.getContentAsString()).isEqualTo("Welcome to WA Standalone Task BPMN");
     }
 }
