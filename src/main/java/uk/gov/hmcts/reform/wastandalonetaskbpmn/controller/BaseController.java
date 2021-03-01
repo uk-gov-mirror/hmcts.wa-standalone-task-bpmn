@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class BaseController {
 
     @GetMapping("/")
-  public String greeting() {
-        return "Welcome to test service";
+    public String greeting() {
+        return "Welcome to WA Standalone Task BPMN";
     }
 }
