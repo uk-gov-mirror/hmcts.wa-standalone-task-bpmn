@@ -129,6 +129,7 @@ public class CamundaCreateTaskTest {
         String testBusinessKey = "TestBusinessKey";
 
         ProcessInstance createTaskAndCancel = startCreateTaskProcessWithBusinessKey(of(
+            "taskId", "reviewTheAppeal",
             "group", EXPECTED_GROUP,
             "dueDate", DUE_DATE_STRING,
             "name", TASK_NAME,
@@ -162,6 +163,7 @@ public class CamundaCreateTaskTest {
         String testBusinessKey = "TestBusinessKey";
 
         ProcessInstance createTaskAndCancel = startCreateTaskProcessWithBusinessKey(of(
+            "taskId", "provideRespondentEvidence",
             "group", EXPECTED_GROUP,
             "dueDate", DUE_DATE_STRING,
             "name", TASK_NAME,
