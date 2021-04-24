@@ -1,4 +1,4 @@
-package uk.gov.hmcts.reform.wastandalonetaskbpmn.tests;
+package uk.gov.hmcts.reform.wastandalonetaskbpmn;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

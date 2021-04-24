@@ -242,6 +242,14 @@ dependencies {
     exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
   }
 
+  testCompile "org.junit.vintage:junit-vintage-engine:${versions.junit}"
+
+  testImplementation group: 'org.camunda.bpm.dmn', name: 'camunda-engine-dmn', version: "${versions.camunda}"
+  testImplementation group: 'org.camunda.bpm.assert', name: 'camunda-bpm-assert', version: '8.0.0'
+  testImplementation group: 'org.camunda.bpm', name: 'camunda-engine', version: '7.14.0'
+  testImplementation group: 'com.h2database', name: 'h2', version: '1.4.200'
+  testImplementation group: 'org.camunda.bpm.extension', name: 'camunda-bpm-junit5', version: '1.0.0'
+  integrationTestImplementation "org.junit.vintage:junit-vintage-engine:${versions.junit}"
 
   integrationTestImplementation sourceSets.main.runtimeClasspath
   integrationTestImplementation sourceSets.test.runtimeClasspath
@@ -249,17 +257,6 @@ dependencies {
   functionalTestImplementation sourceSets.main.runtimeClasspath
 
   smokeTestImplementation sourceSets.main.runtimeClasspath
-
-  integrationTestImplementation group: 'org.camunda.bpm.dmn', name: 'camunda-engine-dmn', version: "${versions.camunda}"
-  integrationTestImplementation group: 'org.camunda.bpm.assert', name: 'camunda-bpm-assert', version: '8.0.0'
-  integrationTestImplementation group: 'org.camunda.bpm', name: 'camunda-engine', version: '7.14.0'
-  integrationTestImplementation group: 'com.h2database', name: 'h2', version: '1.4.200'
-  integrationTestImplementation "org.junit.vintage:junit-vintage-engine:${versions.junit}"
-
-  testCompile "org.junit.vintage:junit-vintage-engine:${versions.junit}"
-
-  integrationTestImplementation sourceSets.main.runtimeClasspath
-  integrationTestImplementation sourceSets.test.runtimeClasspath
 
 }
 
