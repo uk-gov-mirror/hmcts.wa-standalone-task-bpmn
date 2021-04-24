@@ -10,10 +10,7 @@
         <camunda:inputOutput>
           <camunda:inputParameter name="name">${name}</camunda:inputParameter>
           <camunda:inputParameter name="taskType">${taskId}</camunda:inputParameter>
-          <camunda:inputParameter name="taskState">${taskState}</camunda:inputParameter>
           <camunda:inputParameter name="taskCategory">${taskCategory}</camunda:inputParameter>
-          <camunda:inputParameter name="location">${location}</camunda:inputParameter>
-          <camunda:inputParameter name="locationName">${locationName}</camunda:inputParameter>
           <camunda:inputParameter name="caseId">${caseId}</camunda:inputParameter>
           <camunda:inputParameter name="jurisdiction">${jurisdiction}</camunda:inputParameter>
           <camunda:inputParameter name="caseTypeId">${caseTypeId}</camunda:inputParameter>

@@ -47,7 +47,7 @@ public abstract class CamundaProcessEngineBaseUnitTest {
     }
 
     /**
-     * Helper method that creates a process instance and progresses it up to the processTask stage
+     * Helper method that creates a process instance and progresses it up to the processTask stage.
      *
      * @param withDelayUntil whether the task should be created with a delay
      * @return The resulting process instance at processTask stage
