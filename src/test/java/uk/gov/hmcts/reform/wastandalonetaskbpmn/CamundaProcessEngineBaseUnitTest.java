@@ -60,6 +60,7 @@ public abstract class CamundaProcessEngineBaseUnitTest {
 
         Map<String, Object> variables = new HashMap<>();
         variables.put("taskId", "provideRespondentEvidence");
+        variables.put("taskType", "provideRespondentEvidence");
         variables.put("group", "TCW");
         variables.put("dueDate", dueDate.format(DateTimeFormatter.ofPattern(DATE_TIME_FORMAT_PATTERN)));
         variables.put("name", "Provide respondent evidence");
