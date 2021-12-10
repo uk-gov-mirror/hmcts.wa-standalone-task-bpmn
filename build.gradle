@@ -144,7 +144,7 @@ sonarqube {
     property "sonar.pitest.mode", "reuseReport"
     property "sonar.pitest.reportsDirectory", "build/reports/pitest"
     property "sonar.exclusions", "src/main/java/uk/gov/hmcts/reform/wastandalonetaskbpmn/config/**," +
-                                 "src/main/java/uk/gov/hmcts/reform/wastandalonetaskbpmn/Application.java"
+      "src/main/java/uk/gov/hmcts/reform/wastandalonetaskbpmn/Application.java"
   }
 }
 
@@ -227,8 +227,8 @@ dependencies {
   implementation group: 'com.github.hmcts.java-logging', name: 'java-logging', version: versions.reformLogging
   implementation group: 'com.github.hmcts.java-logging', name: 'java-logging-appinsights', version: versions.reformLogging
 
-  implementation group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.14.0'
-  implementation group: 'org.apache.logging.log4j', name: 'log4j-to-slf4j', version: '2.14.0'
+  implementation group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.15.0'
+  implementation group: 'org.apache.logging.log4j', name: 'log4j-to-slf4j', version: '2.15.0'
 
   implementation group: 'org.apache.tomcat.embed', name: 'tomcat-embed-core', version: '9.0.50'
   implementation group: 'org.apache.tomcat.embed', name: 'tomcat-embed-websocket', version: '9.0.50'
