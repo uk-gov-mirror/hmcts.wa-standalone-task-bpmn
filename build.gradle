@@ -4,7 +4,7 @@ plugins {
   id 'pmd'
   id 'jacoco'
   id 'io.spring.dependency-management' version '1.0.11.RELEASE'
-  id 'org.springframework.boot' version '2.4.12'
+  id 'org.springframework.boot' version '2.6.4'
   id 'com.github.ben-manes.versions' version '0.38.0'
   id 'org.owasp.dependencycheck' version '6.5.3'
   id 'org.sonarqube' version '3.2.0'
@@ -47,6 +47,10 @@ sourceSets {
     }
     resources.srcDir file('src/smokeTest/resources')
   }
+}
+
+tasks.withType(Copy) {
+  duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 }
 
 tasks.withType(JavaCompile) {
@@ -202,9 +206,10 @@ def versions = [
   junit           : '5.7.2',
   junitPlatform   : '1.7.2',
   reformLogging   : '5.1.9',
-  springBoot      : '2.4.2',
-  springfoxSwagger: '2.9.2',
-  camunda         : '7.14.0',
+  springBoot      : '2.6.4',
+  springDoc       : '1.6.6',
+  camunda         : '7.16.0',
+  tomcat          : '9.0.58',
   pitest          : '1.5.2',
   sonarPitest     : '0.5'
 
@@ -227,7 +232,7 @@ dependencies {
   implementation group: 'org.springframework.boot', name: 'spring-boot-starter-aop'
   implementation group: 'org.springframework.boot', name: 'spring-boot-starter-json'
 
-  implementation group: 'io.springfox', name: 'springfox-swagger2', version: versions.springfoxSwagger
+  implementation group: 'org.springdoc', name: 'springdoc-openapi-ui', version: versions.springDoc
 
   implementation group: 'com.github.hmcts.java-logging', name: 'logging', version: versions.reformLogging
   implementation group: 'com.github.hmcts.java-logging', name: 'logging-appinsights', version: versions.reformLogging
@@ -235,26 +240,26 @@ dependencies {
   implementation group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.17.1'
   implementation group: 'org.apache.logging.log4j', name: 'log4j-to-slf4j', version: '2.17.1'
 
-  implementation group: 'org.apache.tomcat.embed', name: 'tomcat-embed-core', version: '9.0.58'
-  implementation group: 'org.apache.tomcat.embed', name: 'tomcat-embed-websocket', version: '9.0.58'
-  implementation 'org.camunda.bpm:camunda-external-task-client:7.15.0'
+  implementation group: 'org.apache.tomcat.embed', name: 'tomcat-embed-core', version: versions.tomcat
+  implementation group: 'org.apache.tomcat.embed', name: 'tomcat-embed-websocket', version: versions.tomcat
+  implementation group: 'org.camunda.bpm', name: 'camunda-external-task-client', version: versions.camunda
 
-  testCompile group: 'org.pitest', name: 'pitest', version: versions.pitest
-  testCompile 'info.solidsoft.gradle.pitest:gradle-pitest-plugin:1.5.2'
+  testImplementation group: 'org.pitest', name: 'pitest', version: versions.pitest
+  testImplementation 'info.solidsoft.gradle.pitest:gradle-pitest-plugin:1.5.2'
 
-  testCompile "org.junit.vintage:junit-vintage-engine:${versions.junit}"
-  testCompile group: 'org.codehaus.sonar-plugins', name: 'sonar-pitest-plugin', version: versions.sonarPitest
+  testImplementation "org.junit.vintage:junit-vintage-engine:${versions.junit}"
+  testImplementation group: 'org.codehaus.sonar-plugins', name: 'sonar-pitest-plugin', version: versions.sonarPitest
   testImplementation libraries.junit5
   testImplementation group: 'org.springframework.boot', name: 'spring-boot-starter-test', {
     exclude group: 'junit', module: 'junit'
     exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
   }
 
-  testCompile "org.junit.vintage:junit-vintage-engine:${versions.junit}"
+  testImplementation "org.junit.vintage:junit-vintage-engine:${versions.junit}"
 
-  testImplementation group: 'org.camunda.bpm.dmn', name: 'camunda-engine-dmn', version: "${versions.camunda}"
-  testImplementation group: 'org.camunda.bpm.assert', name: 'camunda-bpm-assert', version: '8.0.0'
-  testImplementation group: 'org.camunda.bpm', name: 'camunda-engine', version: '7.14.0'
+  testImplementation group: 'org.camunda.bpm.dmn', name: 'camunda-engine-dmn', version: versions.camunda
+  testImplementation group: 'org.camunda.bpm.assert', name: 'camunda-bpm-assert', version: '14.0.0'
+  testImplementation group: 'org.camunda.bpm', name: 'camunda-engine', version: versions.camunda
   testImplementation group: 'org.camunda.bpm.extension', name: 'camunda-bpm-junit5', version: '1.0.0'
 
   testImplementation group: 'com.h2database', name: 'h2', version: '1.4.200'
