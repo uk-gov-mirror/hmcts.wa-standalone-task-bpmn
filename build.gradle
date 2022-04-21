@@ -4,7 +4,7 @@ plugins {
   id 'pmd'
   id 'jacoco'
   id 'io.spring.dependency-management' version '1.0.11.RELEASE'
-  id 'org.springframework.boot' version '2.6.4'
+  id 'org.springframework.boot' version '2.6.6'
   id 'com.github.ben-manes.versions' version '0.38.0'
   id 'org.owasp.dependencycheck' version '6.5.3'
   id 'org.sonarqube' version '3.2.0'
@@ -88,6 +88,11 @@ task smoke(type: Test) {
   description = "Runs Smoke Tests"
   testClassesDirs = sourceSets.smokeTest.output.classesDirs
   classpath = sourceSets.smokeTest.runtimeClasspath
+}
+
+task tests {
+  description = "Runs junit , integration and functional tests"
+  dependsOn test, integration, functional
 }
 
 checkstyle {
