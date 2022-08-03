@@ -6,5 +6,5 @@ def type = "java"
 def product = "wa"
 def component = "standalone-task-bpmn"
 
-withPipeline(type, product, component) {
+withNightlyPipeline(type, product, component) {
 }
