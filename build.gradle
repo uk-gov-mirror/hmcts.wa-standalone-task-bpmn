@@ -4,9 +4,9 @@ plugins {
   id 'pmd'
   id 'jacoco'
   id 'io.spring.dependency-management' version '1.0.11.RELEASE'
-  id 'org.springframework.boot' version '2.7.4'
+  id 'org.springframework.boot' version '2.7.7'
   id 'com.github.ben-manes.versions' version '0.38.0'
-  id 'org.owasp.dependencycheck' version '7.3.0'
+  id 'org.owasp.dependencycheck' version '7.4.4'
   id 'org.sonarqube' version '3.4.0.2513'
   id 'info.solidsoft.pitest' version '1.7.4'
 
@@ -240,11 +240,11 @@ def versions = [
   junit           : '5.7.2',
   junitPlatform   : '1.7.2',
   reformLogging   : '5.1.9',
-  springBoot      : '2.6.4',
+  springBoot      : '2.7.7',
   springSecurity  : '5.7.5',
   springDoc       : '1.6.6',
-  camunda         : '7.16.0',
-  tomcat          : '9.0.68',
+  camunda         : '7.18.0',
+  tomcat          : '9.0.69',
   pitest          : '1.5.2',
   sonarPitest     : '0.5'
 
@@ -295,9 +295,9 @@ dependencies {
   testImplementation "org.junit.vintage:junit-vintage-engine:${versions.junit}"
 
   testImplementation group: 'org.camunda.bpm.dmn', name: 'camunda-engine-dmn', version: versions.camunda
-  testImplementation group: 'org.camunda.bpm.assert', name: 'camunda-bpm-assert', version: '14.0.0'
+  testImplementation group: 'org.camunda.bpm.assert', name: 'camunda-bpm-assert', version: '15.0.0'
   testImplementation group: 'org.camunda.bpm', name: 'camunda-engine', version: versions.camunda
-  testImplementation group: 'org.camunda.bpm.extension', name: 'camunda-bpm-junit5', version: '1.0.0'
+  testImplementation group: 'org.camunda.bpm.extension', name: 'camunda-bpm-junit5', version: '1.1.0'
 
   testImplementation group: 'com.h2database', name: 'h2', version: '1.4.200'
   integrationTestImplementation "org.junit.vintage:junit-vintage-engine:${versions.junit}"
