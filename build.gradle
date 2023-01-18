@@ -244,7 +244,7 @@ def versions = [
   springSecurity  : '5.7.5',
   springDoc       : '1.6.6',
   camunda         : '7.18.0',
-  tomcat          : '11.0.0-M1',
+  tomcat          : '9.0.71',
   pitest          : '1.5.2',
   sonarPitest     : '0.5'
 
