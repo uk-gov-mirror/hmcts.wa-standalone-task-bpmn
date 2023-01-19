@@ -6,14 +6,17 @@ def type = "java"
 def product = "wa"
 def component = "standalone-task-bpmn"
 def s2sServiceName = "wa_camunda_pipeline_upload"
-def tenantId = null	
-
+def tenantId = null
+def branchesToSync = ['demo', 'perftest','ithc']
 
 withCamundaOnlyPipeline(type, product, component, s2sServiceName, tenantId) {
 
-  after('test') {
+  afterSuccess('test') {
     steps.archiveArtifacts allowEmptyArchive: true, artifacts: '**/reports/tests/**/*'
     steps.archiveArtifacts allowEmptyArchive: true, artifacts: '**/reports/tests/integration/**/*'
   }
+
+  // Sync environment specific branches with master branch
+  syncBranchesWithMaster(branchesToSync)
 
 }
