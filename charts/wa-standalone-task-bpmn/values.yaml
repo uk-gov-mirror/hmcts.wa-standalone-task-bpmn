@@ -4,3 +4,4 @@ java:
   ingressHost: wa-standalone-task-bpmn-{{ .Values.global.environment }}.service.core-compute-{{ .Values.global.environment }}.internal
   environment:
     ROOT_LOGGING_LEVEL: debug
+    ENABLE_SWAGGER: true
