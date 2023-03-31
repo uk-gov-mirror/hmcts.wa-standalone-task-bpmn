@@ -4,7 +4,7 @@ plugins {
   id 'pmd'
   id 'jacoco'
   id 'io.spring.dependency-management' version '1.1.0'
-  id 'org.springframework.boot' version '2.7.7'
+  id 'org.springframework.boot' version '2.7.10'
   id 'com.github.ben-manes.versions' version '0.45.0'
   id 'org.owasp.dependencycheck' version '8.1.0'
   id 'org.sonarqube' version '4.0.0.2929'
@@ -245,7 +245,7 @@ def versions = [
   springSecurity  : '5.7.5',
   springDoc       : '1.6.6',
   camunda         : '7.18.0',
-  tomcat          : '9.0.71',
+  tomcat          : '9.0.72',
   pitest          : '1.5.2',
   sonarPitest     : '0.5'
 
