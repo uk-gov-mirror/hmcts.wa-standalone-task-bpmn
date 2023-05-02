@@ -191,18 +191,9 @@ dependencyManagement {
   dependencies {
     dependency group: 'org.bouncycastle', name: 'bcpkix-jdk15on', version: '1.70'
 
-    // CVE-2018-10237 - Unbounded memory allocation
-    //dependencySet(group: 'com.google.guava', version: '31.1-jre') {
-      //entry 'guava'
-    //}
 
     //CVE-2021-28170
     dependency group: 'org.glassfish', name: 'jakarta.el', version: '4.0.2'
-    //CVE-2021-42550
-    //dependencySet(group: 'ch.qos.logback', version: '1.2.10') {
-     // entry 'logback-classic'
-     // entry 'logback-core'
-    //}
 
     dependencySet( group: 'org.springframework.security', version: '6.0.3'){
       entry 'spring-boot-starter-security'
@@ -251,16 +242,6 @@ def versions = [
 
 ]
 
-//ext.libraries = [
-  //junit5: [
-    //"org.junit.jupiter:junit-jupiter-api:${versions.junit}",
-    //"org.junit.jupiter:junit-jupiter-engine:${versions.junit}",
-    //"org.junit.jupiter:junit-jupiter-params:${versions.junit}",
-    //"org.junit.platform:junit-platform-commons:${versions.junitPlatform}",
-    //"org.junit.platform:junit-platform-engine:${versions.junitPlatform}"
-  //]
-//]
-
 ext['snakeyaml.version'] = '2.0'
 
 dependencies {
@@ -279,8 +260,6 @@ dependencies {
   implementation group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.20.0'
   implementation group: 'org.apache.logging.log4j', name: 'log4j-to-slf4j', version: '2.20.0'
 
-  //implementation group: 'org.apache.tomcat.embed', name: 'tomcat-embed-core', version: versions.tomcat
-  //implementation group: 'org.apache.tomcat.embed', name: 'tomcat-embed-websocket', version: versions.tomcat
   implementation group: 'org.camunda.bpm', name: 'camunda-external-task-client', version: versions.camunda
 
   testImplementation group: 'org.pitest', name: 'pitest', version: versions.pitest
