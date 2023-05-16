@@ -39,12 +39,6 @@
   </suppress>
   <suppress>
     <notes>
-      jackson-core-2.13.4 is directly used by spring-boot-starter-json 2.7.7, spring boot 3 needed
-    </notes>
-    <cve>CVE-2022-45688</cve>
-  </suppress>
-  <suppress>
-    <notes>
       org.yaml:snakeyaml:1.33 directly used by org.springframework.boot:spring-boot-starter-web 2.7.5 and there are no higher version then snakeyaml 1.33
     </notes>
     <cve>CVE-2021-4235</cve>
