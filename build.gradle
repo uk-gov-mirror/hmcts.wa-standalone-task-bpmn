@@ -20,6 +20,7 @@ java {
   toolchain {
     languageVersion = JavaLanguageVersion.of(17)
   }
+  gradle("--version")
 }
 
 sourceSets {
@@ -310,4 +311,5 @@ bootJar {
 
 wrapper {
   distributionType = Wrapper.DistributionType.ALL
+  gradle("--version")
 }
