@@ -45,8 +45,8 @@
   </suppress>
   <suppress>
     <notes>
-      com.launchdarkly:launchdarkly-java-server-sdk:5.10.2 is directly used by spring-boot-starter-json 2.7.7, spring boot 3 needed
+      version greater than spring boot 3.2 needed
     </notes>
-    <cve>CVE-2022-1471</cve>
+    <cve>CVE-2016-9878</cve>
   </suppress>
 </suppressions>
