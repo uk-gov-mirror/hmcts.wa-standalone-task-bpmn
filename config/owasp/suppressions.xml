@@ -18,14 +18,6 @@
     <cve>CVE-2022-33915</cve>
   </suppress>
   <suppress>
-    <notes>Not affected by this cve (https://nvd.nist.gov/vuln/detail/CVE-2022-42003)</notes>
-    <cve>CVE-2022-42003</cve>
-  </suppress>
-  <suppress until ="2023-12-31">
-    <notes>False positive (https://nvd.nist.gov/vuln/detail/CVE-2021-37533)</notes>
-    <cve>CVE-2021-37533</cve>
-  </suppress>
-  <suppress>
     <notes>
       version greater than spring boot 3.2 needed
     </notes>
