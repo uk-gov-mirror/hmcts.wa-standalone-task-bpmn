@@ -20,8 +20,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-@ActiveProfiles(profiles = {"db", "integration"})
-@AutoConfigureMockMvc(addFilters = false)
+@AutoConfigureMockMvc
 class OpenAPIPublisherTest {
 
     @Autowired
