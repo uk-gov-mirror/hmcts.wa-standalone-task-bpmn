@@ -1,6 +1,5 @@
 package uk.gov.hmcts.reform.wastandalonetaskbpmn.config;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -23,7 +22,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @ActiveProfiles(profiles = {"db", "integration"})
 @AutoConfigureMockMvc(addFilters = false)
-@Disabled
 class OpenAPIPublisherTest {
 
     @Autowired
