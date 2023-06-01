@@ -7,7 +7,7 @@ plugins {
   id 'org.springframework.boot' version '3.1.0'
   id 'com.github.ben-manes.versions' version '0.46.0'
   id 'org.owasp.dependencycheck' version '8.2.1'
-  id 'org.sonarqube' version '4.0.0.2929'
+  id 'org.sonarqube' version '4.1.0.3113'
   id 'info.solidsoft.pitest' version '1.9.11'
   id 'java'
   id 'jvm-test-suite'
@@ -193,6 +193,10 @@ dependencyManagement {
   dependencies {
     dependency group: 'org.bouncycastle', name: 'bcpkix-jdk15on', version: '1.70'
 
+    // CVE-2018-10237 - Unbounded memory allocation
+    dependencySet(group: 'com.google.guava', version: '32.0.0-jre') {
+      entry 'guava'
+    }
 
     //CVE-2021-28170
     dependency group: 'org.glassfish', name: 'jakarta.el', version: '4.0.2'
@@ -234,7 +238,7 @@ def versions = [
   junit           : '5.9.3',
   junitPlatform   : '1.9.3',
   reformLogging   : '6.0.1',
-  springBoot      : '3.0.6',
+  springBoot      : '3.1.0',
   springDoc       : '2.1.0',
   camunda         : '7.19.0',
   pitest          : '1.14.0',
