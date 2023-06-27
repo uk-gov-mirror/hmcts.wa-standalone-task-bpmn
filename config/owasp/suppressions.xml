@@ -17,10 +17,8 @@
     <packageUrl regex="true">^pkg:maven/org\.apache\.logging\.log4j/log4j\-api@.*$</packageUrl>
     <cve>CVE-2022-33915</cve>
   </suppress>
-  <suppress>
-    <notes>
-      version greater than spring boot 3.2 needed
-    </notes>
-    <cve>CVE-2016-9878</cve>
+  <suppress until ="2023-08-31">
+    <notes>Wait for spring boot upgrades</notes>
+    <cve>CVE-2023-35116</cve>
   </suppress>
 </suppressions>
