@@ -22,9 +22,9 @@
       "matchUpdateTypes": [
         "minor", "patch"
       ],
-      "groupName": "All patch-minor dependencies",
+      "groupName": "all minor and patch dependencies",
       "groupSlug": "All-minor-patch",
-      "addLabels": ["Renovate All-minor-patch"],
+      "addLabels": ["Renovate all-minor-patch"],
       "automerge": false
     }
   ]
