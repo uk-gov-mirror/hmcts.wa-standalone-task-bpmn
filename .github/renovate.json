@@ -17,7 +17,15 @@
       ]
     }
   ],
-  "platformAutomerge": true,
-  "automerge": true,
-  "automergeType": "pr"
+   "packageRules": [
+    {
+      "matchUpdateTypes": [
+        "minor", "patch"
+      ],
+      "groupName": "All patch-minor dependencies",
+      "groupSlug": "All-minor-patch",
+      "addLabels": ["Renovate All-minor-patch"],
+      "automerge": false
+    }
+  ]
 }
