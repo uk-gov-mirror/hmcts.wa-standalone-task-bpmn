@@ -18,6 +18,12 @@
     <cve>CVE-2022-33915</cve>
   </suppress>
   <suppress>
+    <notes>False Positives
+      https://nvd.nist.gov/vuln/detail/CVE-2023-34047 affects GraphQL library that we don't use in this project
+    </notes>
+    <cve>CVE-2023-34047</cve>
+  </suppress>
+  <suppress>
     <notes>
       version greater than spring boot 3.2 needed
     </notes>
