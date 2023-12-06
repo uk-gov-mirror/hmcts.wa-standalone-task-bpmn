@@ -225,10 +225,6 @@ dependencyManagement {
       entry 'spring-security-web'
     }
 
-    dependencySet(group: 'ch.qos.logback', version: '1.2.13') {
-      entry 'logback-classic'
-      entry 'logback-core'
-    }
   }
 }
 
@@ -256,7 +252,9 @@ ext['tomcat.version'] = '10.1.16'
 dependencies {
   implementation group: 'org.springframework.boot', name: 'spring-boot-gradle-plugin', version: versions.springBoot
 
-  implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: versions.springBoot
+  implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: versions.springBoot{
+    exclude group: "ch.qos.logback", module: "logback-classic"
+  }
   implementation group: 'org.springframework.boot', name: 'spring-boot-starter-actuator', version: versions.springBoot
   implementation group: 'org.springframework.boot', name: 'spring-boot-starter-aop', version: versions.springBoot
   implementation group: 'org.springframework.boot', name: 'spring-boot-starter-json', version: versions.springBoot
