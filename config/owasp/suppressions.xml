@@ -34,4 +34,8 @@
       Wait for spring boot upgrades</notes>
     <cve>CVE-2023-35116</cve>
   </suppress>
+  <suppress until ="2024-01-31">
+    <notes>Logback can't be upgraded</notes>
+    <cve>CVE-2023-6378</cve>
+  </suppress>
 </suppressions>
