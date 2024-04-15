@@ -46,6 +46,15 @@ public abstract class CamundaProcessEngineBaseUnitTest {
             .startProcessInstanceByMessage("createTaskMessage", businessKey, processVariables);
     }
 
+    public ProcessInstance startCreateTaskProcessWithBusinessKeyWithoutTenentId(Map<String, Object> processVariables,
+                                                                 String businessKey) {
+        return processEngineRule.getRuntimeService().createMessageCorrelation("createTaskMessage")
+            .processInstanceBusinessKey(businessKey)
+            .setVariables(processVariables)
+            .withoutTenantId()
+            .correlateStartMessage();
+    }
+
     /**
      * Helper method that creates a process instance and progresses it up to the processTask stage.
      *
@@ -77,7 +86,7 @@ public abstract class CamundaProcessEngineBaseUnitTest {
             variables.put("delayUntil", delayUntilValue);
         }
 
-        ProcessInstance processInstance = startCreateTaskProcessWithBusinessKey(variables, TEST_BUSINESS_KEY);
+        ProcessInstance processInstance = startCreateTaskProcessWithBusinessKeyWithoutTenentId(variables, TEST_BUSINESS_KEY);
 
         //Check task is waiting at idempotency check and manually execute
         BpmnAwareTests.assertThat(processInstance).isWaitingAt("idempotencyCheck");
