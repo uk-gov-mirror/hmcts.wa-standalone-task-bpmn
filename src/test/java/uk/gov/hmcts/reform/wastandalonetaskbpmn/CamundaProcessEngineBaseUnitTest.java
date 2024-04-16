@@ -86,7 +86,8 @@ public abstract class CamundaProcessEngineBaseUnitTest {
             variables.put("delayUntil", delayUntilValue);
         }
 
-        ProcessInstance processInstance = startCreateTaskProcessWithBusinessKeyWithoutTenentId(variables, TEST_BUSINESS_KEY);
+        ProcessInstance processInstance =
+            startCreateTaskProcessWithBusinessKeyWithoutTenentId(variables, TEST_BUSINESS_KEY);
 
         //Check task is waiting at idempotency check and manually execute
         BpmnAwareTests.assertThat(processInstance).isWaitingAt("idempotencyCheck");

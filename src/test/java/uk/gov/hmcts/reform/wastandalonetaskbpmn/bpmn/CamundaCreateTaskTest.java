@@ -4,13 +4,13 @@ import org.camunda.bpm.engine.MismatchingMessageCorrelationException;
 import org.camunda.bpm.engine.ProcessEngineException;
 import org.camunda.bpm.engine.RepositoryService;
 import org.camunda.bpm.engine.repository.DeploymentBuilder;
+import org.camunda.bpm.engine.repository.DeploymentQuery;
 import org.camunda.bpm.engine.runtime.ProcessInstance;
 import org.camunda.bpm.engine.test.Deployment;
 import org.camunda.bpm.engine.test.assertions.bpmn.BpmnAwareTests;
 import org.junit.Test;
 import uk.gov.hmcts.reform.wastandalonetaskbpmn.CamundaProcessEngineBaseUnitTest;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class CamundaCreateTaskTest extends CamundaProcessEngineBaseUnitTest {
@@ -29,6 +29,8 @@ public class CamundaCreateTaskTest extends CamundaProcessEngineBaseUnitTest {
 
     @Test
     public void should_not_create_a_task_with_different_TenantId_multiple_resource() {
+
+        clearDeployments();
 
         RepositoryService repositoryService = processEngineRule.getRepositoryService();
 
@@ -51,6 +53,8 @@ public class CamundaCreateTaskTest extends CamundaProcessEngineBaseUnitTest {
     @Test
     public void should_create_a_task_with_and_without_TenantId_multiple_resources() {
 
+        clearDeployments();
+
         RepositoryService repositoryService = processEngineRule.getRepositoryService();
 
         DeploymentBuilder deploymentBuilder = repositoryService.createDeployment()
@@ -70,7 +74,10 @@ public class CamundaCreateTaskTest extends CamundaProcessEngineBaseUnitTest {
     }
 
     @Test
-    public void should_not_create_a_task_withoutTenantId_multiple_resource() throws Exception{
+    public void should_not_create_a_task_withoutTenantId_multiple_resource() {
+
+        clearDeployments();
+
         RepositoryService repositoryService = processEngineRule.getRepositoryService();
 
         DeploymentBuilder deploymentBuilder = repositoryService.createDeployment();
@@ -83,6 +90,13 @@ public class CamundaCreateTaskTest extends CamundaProcessEngineBaseUnitTest {
                 .deploy();
         });
 
+    }
+
+    private void clearDeployments() {
+        DeploymentQuery deploymentQuery = processEngineRule.getRepositoryService().createDeploymentQuery();
+        for (org.camunda.bpm.engine.repository.Deployment deployment : deploymentQuery.list()) {
+            processEngineRule.getRepositoryService().deleteDeployment(deployment.getId(), true);
+        }
     }
 
 }
