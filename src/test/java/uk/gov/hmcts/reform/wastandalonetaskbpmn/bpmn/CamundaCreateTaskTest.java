@@ -11,6 +11,7 @@ import org.camunda.bpm.engine.test.assertions.bpmn.BpmnAwareTests;
 import org.junit.Test;
 import uk.gov.hmcts.reform.wastandalonetaskbpmn.CamundaProcessEngineBaseUnitTest;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class CamundaCreateTaskTest extends CamundaProcessEngineBaseUnitTest {
@@ -70,6 +71,7 @@ public class CamundaCreateTaskTest extends CamundaProcessEngineBaseUnitTest {
         ProcessInstance processInstance =  createTask(false);
 
         BpmnAwareTests.complete(BpmnAwareTests.task("processTask"));
+        assertEquals(null,processInstance.getTenantId());
         BpmnAwareTests.assertThat(processInstance).isEnded();
     }
 
