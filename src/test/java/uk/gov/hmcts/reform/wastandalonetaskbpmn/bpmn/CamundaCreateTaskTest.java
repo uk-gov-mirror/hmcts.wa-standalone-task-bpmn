@@ -29,7 +29,7 @@ public class CamundaCreateTaskTest extends CamundaProcessEngineBaseUnitTest {
     }
 
     @Test
-    public void should_not_create_a_task_with_different_Tenant_id_multiple_resource() {
+    public void should_not_create_a_task_with_different_tenant_id_multiple_resource() {
 
         clearDeployments();
 
@@ -52,7 +52,7 @@ public class CamundaCreateTaskTest extends CamundaProcessEngineBaseUnitTest {
     }
 
     @Test
-    public void should_create_a_task_with_and_without_TenantId_multiple_resources() {
+    public void should_create_a_task_with_and_without_tenant_id_multiple_resources() {
 
         clearDeployments();
 
