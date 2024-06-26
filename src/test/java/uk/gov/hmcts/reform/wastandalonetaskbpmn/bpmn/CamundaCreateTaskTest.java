@@ -15,7 +15,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class CamundaCreateTaskTest extends CamundaProcessEngineBaseUnitTest {
-
     @Test
     @Deployment(resources = {"wa-task-initiation-ia-asylum.bpmn"})
     public void should_create_a_task_with_delay_until() {
@@ -73,6 +72,8 @@ public class CamundaCreateTaskTest extends CamundaProcessEngineBaseUnitTest {
         BpmnAwareTests.complete(BpmnAwareTests.task("processTask"));
         assertEquals(null,processInstance.getTenantId());
         BpmnAwareTests.assertThat(processInstance).isEnded();
+
+        clearDeployments();
     }
 
     @Test
