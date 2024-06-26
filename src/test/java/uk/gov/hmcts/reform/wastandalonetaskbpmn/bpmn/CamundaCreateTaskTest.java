@@ -29,7 +29,7 @@ public class CamundaCreateTaskTest extends CamundaProcessEngineBaseUnitTest {
     }
 
     @Test
-    public void should_not_create_a_task_with_different_TenantId_multiple_resource() {
+    public void should_not_create_a_task_with_different_Tenant_id_multiple_resource() {
 
         clearDeployments();
 
@@ -76,7 +76,7 @@ public class CamundaCreateTaskTest extends CamundaProcessEngineBaseUnitTest {
     }
 
     @Test
-    public void should_not_create_a_task_withoutTenantId_multiple_resource() {
+    public void should_not_create_a_task_without_tenant_id_multiple_resource() {
 
         clearDeployments();
 
@@ -86,8 +86,8 @@ public class CamundaCreateTaskTest extends CamundaProcessEngineBaseUnitTest {
         deploymentBuilder.addClasspathResource("wa-task-initiation-ia-asylum.bpmn")
             .deploy();
 
+        DeploymentBuilder deploymentBuilder2 = repositoryService.createDeployment();
         assertThrows(ProcessEngineException.class, () -> {
-            DeploymentBuilder deploymentBuilder2 = repositoryService.createDeployment();
             deploymentBuilder2.addClasspathResource("wa-task-initiation-ia-asylum_duplicate.bpmn")
                 .deploy();
         });
