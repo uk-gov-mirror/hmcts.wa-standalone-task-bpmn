@@ -94,6 +94,23 @@ public class CamundaCreateTaskTest extends CamundaProcessEngineBaseUnitTest {
 
     }
 
+    @Test
+    public void should_not_create_a_task_with_same_tenant_id_multiple_resource() {
+
+        clearDeployments();
+
+        RepositoryService repositoryService = processEngineRule.getRepositoryService();
+
+        DeploymentBuilder deploymentBuilder = repositoryService.createDeployment().tenantId("someTenantId");;
+        deploymentBuilder.addClasspathResource("wa-task-initiation-ia-asylum.bpmn")
+            .deploy();
+
+        DeploymentBuilder deploymentBuilder2 = repositoryService.createDeployment().tenantId("someTenantId");
+        deploymentBuilder2.addClasspathResource("wa-task-initiation-ia-asylum_duplicate.bpmn");
+        assertThrows(ProcessEngineException.class, deploymentBuilder2::deploy);
+
+    }
+
     private void clearDeployments() {
         DeploymentQuery deploymentQuery = processEngineRule.getRepositoryService().createDeploymentQuery();
         for (org.camunda.bpm.engine.repository.Deployment deployment : deploymentQuery.list()) {
