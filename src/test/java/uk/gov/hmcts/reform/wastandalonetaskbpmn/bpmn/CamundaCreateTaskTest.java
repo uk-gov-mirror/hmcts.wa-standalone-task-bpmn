@@ -11,8 +11,9 @@ import org.camunda.bpm.engine.test.assertions.bpmn.BpmnAwareTests;
 import org.junit.Test;
 import uk.gov.hmcts.reform.wastandalonetaskbpmn.CamundaProcessEngineBaseUnitTest;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+
 
 public class CamundaCreateTaskTest extends CamundaProcessEngineBaseUnitTest {
     @Test
@@ -70,7 +71,7 @@ public class CamundaCreateTaskTest extends CamundaProcessEngineBaseUnitTest {
         ProcessInstance processInstance =  createTask(false);
 
         BpmnAwareTests.complete(BpmnAwareTests.task("processTask"));
-        assertEquals(null,processInstance.getTenantId());
+        assertNull(processInstance.getTenantId());
         BpmnAwareTests.assertThat(processInstance).isEnded();
 
         clearDeployments();
@@ -88,10 +89,8 @@ public class CamundaCreateTaskTest extends CamundaProcessEngineBaseUnitTest {
             .deploy();
 
         DeploymentBuilder deploymentBuilder2 = repositoryService.createDeployment();
-        assertThrows(ProcessEngineException.class, () -> {
-            deploymentBuilder2.addClasspathResource("wa-task-initiation-ia-asylum_duplicate.bpmn")
-                .deploy();
-        });
+        deploymentBuilder2.addClasspathResource("wa-task-initiation-ia-asylum_duplicate.bpmn");
+        assertThrows(ProcessEngineException.class, deploymentBuilder2::deploy);
 
     }
 
