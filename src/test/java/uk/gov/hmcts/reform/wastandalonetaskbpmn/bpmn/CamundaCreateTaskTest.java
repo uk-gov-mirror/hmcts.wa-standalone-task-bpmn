@@ -11,6 +11,7 @@ import org.camunda.bpm.engine.test.assertions.bpmn.BpmnAwareTests;
 import org.junit.Test;
 import uk.gov.hmcts.reform.wastandalonetaskbpmn.CamundaProcessEngineBaseUnitTest;
 
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -19,13 +20,17 @@ public class CamundaCreateTaskTest extends CamundaProcessEngineBaseUnitTest {
     @Test
     @Deployment(resources = {"wa-task-initiation-ia-asylum.bpmn"})
     public void should_create_a_task_with_delay_until() {
-        createTask(true);
+        //helper method has assertions to check the task is raised with a delayUntil attribute
+        final ProcessInstance processInstance = createTask(true);
+        assertNotNull(processInstance);
     }
 
     @Test
     @Deployment(resources = {"wa-task-initiation-ia-asylum.bpmn"})
     public void should_create_a_task_with_no_delay_until() {
-        createTask(false);
+        //helper method has assertions to check the task is raised with no delayUntil attribute
+        final ProcessInstance processInstance = createTask(false);
+        assertNotNull(processInstance);
     }
 
     @Test
