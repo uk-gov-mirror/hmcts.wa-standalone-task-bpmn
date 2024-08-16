@@ -106,7 +106,7 @@ public class CamundaCreateTaskTest extends CamundaProcessEngineBaseUnitTest {
 
         RepositoryService repositoryService = processEngineRule.getRepositoryService();
 
-        DeploymentBuilder deploymentBuilder = repositoryService.createDeployment().tenantId("someTenantId");;
+        DeploymentBuilder deploymentBuilder = repositoryService.createDeployment().tenantId("someTenantId");
         deploymentBuilder.addClasspathResource("wa-task-initiation-ia-asylum.bpmn")
             .deploy();
 
