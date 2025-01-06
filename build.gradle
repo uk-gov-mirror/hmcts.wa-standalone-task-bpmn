@@ -239,7 +239,7 @@ def versions = [
   junitPlatform   : '1.11.4',
   reformLogging   : '6.1.7',
   springBoot      : '3.3.2',
-  springDoc       : '2.6.0',
+  springDoc       : '2.7.0',
   camunda         : '7.22.0',
   pitest          : '1.16.3',
   sonarPitest     : '0.5'
@@ -247,7 +247,7 @@ def versions = [
 ]
 
 ext['snakeyaml.version'] = '2.0'
-ext['tomcat.version'] = '10.1.16'
+ext['tomcat.version'] = '10.1.33'
 
 dependencies {
   implementation group: 'org.springframework.boot', name: 'spring-boot-gradle-plugin', version: versions.springBoot
@@ -258,7 +258,7 @@ dependencies {
   implementation group: 'org.springframework.boot', name: 'spring-boot-starter-json', version: versions.springBoot
   implementation group: 'com.google.guava', name: 'guava', version: '33.4.0-jre'
 
-  implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.16.1'
+  implementation group: 'com.fasterxml.jackson.core',  name: 'jackson-databind', version: '2.16.1'
 
   implementation group: 'org.springdoc', name: 'springdoc-openapi-starter-webmvc-ui', version: versions.springDoc
 
