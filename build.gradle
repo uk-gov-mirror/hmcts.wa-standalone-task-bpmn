@@ -109,7 +109,7 @@ checkstyle {
 }
 
 pmd {
-  toolVersion = "7.8.0"
+  toolVersion = "7.9.0"
   sourceSets = [sourceSets.main]
   reportsDir = file("$project.buildDir/reports/pmd")
   // https://github.com/pmd/pmd/issues/876
@@ -194,7 +194,7 @@ dependencyManagement {
     dependency group: 'org.bouncycastle', name: 'bcpkix-jdk15on', version: '1.70'
 
     // CVE-2018-10237 - Unbounded memory allocation
-    dependencySet(group: 'com.google.guava', version: '33.3.1-jre') {
+    dependencySet(group: 'com.google.guava', version: '33.4.0-jre') {
       entry 'guava'
     }
 
@@ -256,7 +256,7 @@ dependencies {
   implementation group: 'org.springframework.boot', name: 'spring-boot-starter-actuator', version: versions.springBoot
   implementation group: 'org.springframework.boot', name: 'spring-boot-starter-aop', version: versions.springBoot
   implementation group: 'org.springframework.boot', name: 'spring-boot-starter-json', version: versions.springBoot
-  implementation group: 'com.google.guava', name: 'guava', version: '33.3.1-jre'
+  implementation group: 'com.google.guava', name: 'guava', version: '33.4.0-jre'
 
   implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.18.2'
 
