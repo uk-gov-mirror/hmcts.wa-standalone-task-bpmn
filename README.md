@@ -1,10 +1,10 @@
 # wa-standalone-task-bpmn
 
-[![Build Status](https://travis-ci.org/hmcts/spring-boot-template.svg?branch=master)](https://travis-ci.org/hmcts/spring-boot-template)
+Last updated: 23/04/2025
 
 ## Purpose
 
-The purpose of this repo is to hold all WA task related bpmns and the tests for those bpmns.
+The purpose of this repo is to hold all WA task related bpmns and the tests for those bpmns. The repository is maintained by the Task Management team.
 
 These BPMNS can be viewed through the [Camunda Modeler](https://camunda.com/download/modeler/) which can be downloaded via the link.
 
