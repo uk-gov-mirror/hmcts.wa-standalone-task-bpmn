@@ -278,9 +278,9 @@ dependencies {
   testImplementation group: 'org.codehaus.sonar-plugins', name: 'sonar-pitest-plugin', version: versions.sonarPitest
 
   testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: versions.junit
-  testImplementation("org.junit.vintage:junit-vintage-engine") {
-    exclude group: "org.hamcrest", module: "hamcrest-core"
-  }
+//  testImplementation("org.junit.vintage:junit-vintage-engine") {
+//    exclude group: "org.hamcrest", module: "hamcrest-core"
+//  }
   testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-params', version: versions.junit
   testRuntimeOnly group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: versions.junit
   testImplementation group: 'org.junit.platform', name: 'junit-platform-engine', version: versions.junitPlatform
@@ -294,7 +294,7 @@ dependencies {
   testImplementation group: 'org.camunda.bpm.extension', name: 'camunda-bpm-junit5', version: '1.1.0'
 
   testImplementation group: 'com.h2database', name: 'h2', version: '2.3.232'
-  integrationTestImplementation "org.junit.vintage:junit-vintage-engine:${versions.junit}"
+//  integrationTestImplementation "org.junit.vintage:junit-vintage-engine:${versions.junit}"
 
   integrationTestImplementation sourceSets.main.runtimeClasspath
   integrationTestImplementation sourceSets.test.runtimeClasspath
