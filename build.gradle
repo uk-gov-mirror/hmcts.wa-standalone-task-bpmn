@@ -295,7 +295,6 @@ dependencies {
 
   testImplementation group: 'com.h2database', name: 'h2', version: '2.3.232'
   integrationTestImplementation "org.junit.vintage:junit-vintage-engine:${versions.junit}"
-//  integrationTestImplementation group : 'org.junit.vintage', name: 'junit-vintage-engine', version: versions.junit
 
   integrationTestImplementation sourceSets.main.runtimeClasspath
   integrationTestImplementation sourceSets.test.runtimeClasspath
