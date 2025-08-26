@@ -63,8 +63,6 @@ public abstract class CamundaProcessEngineBaseUnitTest {
      */
     public ProcessInstance createTask(boolean withDelayUntil) {
 
-        String delayUntilValue = now().plusSeconds(1).format(DateTimeFormatter.ofPattern(DATE_TIME_FORMAT_PATTERN));
-
         ZonedDateTime dueDate = now().plusDays(7);
 
         Map<String, Object> variables = new HashMap<>();
@@ -81,6 +79,8 @@ public abstract class CamundaProcessEngineBaseUnitTest {
         variables.put("caseTypeId", "Asylum");
         variables.put("workingDaysAllowed", 2);
         variables.put("isDuplicate", false);
+
+        String delayUntilValue = now().plusSeconds(1).format(DateTimeFormatter.ofPattern(DATE_TIME_FORMAT_PATTERN));
 
         if (withDelayUntil) {
             variables.put("delayUntil", delayUntilValue);
