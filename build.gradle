@@ -308,7 +308,9 @@ dependencies {
 
 }
 
-mainClassName = 'uk.gov.hmcts.reform.wastandalonetaskbpmn.Application'
+application {
+  mainClass = 'uk.gov.hmcts.reform.wastandalonetaskbpmn.Application'
+}
 
 bootJar {
   getArchiveFileName().set(provider {
