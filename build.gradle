@@ -102,6 +102,12 @@ tasks.register('tests') {
   dependsOn test, integration, functional
 }
 
+tasks.register('fortifyScan', JavaExec)  {
+  mainClass = "uk.gov.hmcts.fortifyclient.FortifyClientMainApp"
+  classpath += sourceSets.test.runtimeClasspath
+  jvmArgs = ['--add-opens=java.base/java.lang.reflect=ALL-UNNAMED']
+}
+
 checkstyle {
   maxWarnings = 0
   toolVersion = '11.0.1'
