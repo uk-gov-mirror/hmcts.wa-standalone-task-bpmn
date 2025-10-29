@@ -102,6 +102,12 @@ tasks.register('tests') {
   dependsOn test, integration, functional
 }
 
+tasks.register('fortifyScan', JavaExec)  {
+  mainClass = "uk.gov.hmcts.fortifyclient.FortifyClientMainApp"
+  classpath += sourceSets.test.runtimeClasspath
+  jvmArgs = ['--add-opens=java.base/java.lang.reflect=ALL-UNNAMED']
+}
+
 checkstyle {
   maxWarnings = 0
   toolVersion = '11.0.1'
@@ -298,6 +304,7 @@ dependencies {
 
   testImplementation group: 'com.h2database', name: 'h2', version: '2.3.232'
   integrationTestImplementation "org.junit.vintage:junit-vintage-engine:${versions.junit}"
+  testImplementation group: 'com.github.hmcts', name: 'fortify-client', version: '1.4.9', classifier: 'all'
 
   integrationTestImplementation sourceSets.main.runtimeClasspath
   integrationTestImplementation sourceSets.test.runtimeClasspath
